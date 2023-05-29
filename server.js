@@ -1,18 +1,25 @@
-const express = require("express");
-const cors = require("cors");
+const Hapi = require('@hapi/hapi');
+const routes = require('./routes');
+const sequelize = require('./db.config');
+
 const port = 3001;
 
-const sequelize = require("./db.config");
-sequelize.sync().then(() => console.log("Program siap digunakan!"));
+const init = async () => {
+    const server = Hapi.server({
+        port: port,
+        host: 'localhost',
+    });
 
-const userEndpoint = require("./routes/users");
-const absensiEndpoint = require("./routes/todo");
+    server.route(routes);
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+    await server.start();
+    console.log(`Running server on port ${server.info.uri}`);
+    sequelize.sync().then(() => console.log('Program siap digunakan!'));
+};
 
-app.use("/users", userEndpoint);
-app.use("/todo", absensiEndpoint);
+process.on('unhandledRejection', (err) => {
+    console.log(err);
+    process.exit(1);
+});
 
-app.listen(port, () => console.log(`running server on port ${port}`));
+init();

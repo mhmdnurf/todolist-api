@@ -5,24 +5,23 @@ class User extends Model {}
 
 User.init(
   {
+    nama_lengkap: {
+      type: DataTypes.STRING,
+    },
     username: {
       type: DataTypes.STRING,
       unique: true,
     },
-    nim: {
-      type: DataTypes.INTEGER,
-      unique: true,
-    },
-    nama: {
-      type: DataTypes.STRING,
-    },
     password: {
       type: DataTypes.STRING,
     },
+    alamat: {
+      type: DataTypes.STRING,
+    }
   },
   {
     sequelize,
-    modelName: "Users",
+    modelName: "users",
   }
 );
 
