@@ -1,5 +1,5 @@
 const {
-    usersHandler, registerHandler, updateHandler, loginHandler
+    usersHandler, registerHandler, loginHandler
 } = require('./handler')
 
 const routes = [

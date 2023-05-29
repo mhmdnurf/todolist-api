@@ -1,6 +1,6 @@
-const UsersModel = require('./models/users');
+const UsersModel = require('../models/users');
 const bcrypt = require('bcrypt');
-const passwordCheck = require('./utils/passwordCheck');
+const passwordCheck = require('../utils/passwordCheck');
 
 const usersHandler = async (request, h) => {
   try {

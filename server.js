@@ -1,6 +1,6 @@
 const Hapi = require('@hapi/hapi');
-const routes = require('./routes');
-const sequelize = require('./db.config');
+const routes = require('./controller/routes');
+const sequelize = require('./DatabaseConfig');
 
 const port = 3001;
 
