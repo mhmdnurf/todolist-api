@@ -7,7 +7,7 @@ const usersHandler = async (request, h) => {
     const users = await UsersModel.findAll();
     return {
       registered: users,
-      metadata: 'Data User Keseluruhan',
+      metadata: 'Welcome to Dashboard!',
     };
   } catch (error) {
     return h.response({ error: 'Register gagal' }).code(400);
