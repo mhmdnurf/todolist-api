@@ -15,16 +15,15 @@ const usersHandler = async (request, h) => {
 };
 
 const registerHandler = async (request, h) => {
-  const { nama_lengkap, username, password, alamat } = request.payload;
+  const { nama_lengkap, email, password } = request.payload;
 
   try {
     const encryptedPassword = await bcrypt.hash(password, 10);
 
     const users = await UsersModel.create({
       nama_lengkap,
-      username,
-      password: encryptedPassword,
-      alamat
+      email,
+      password: encryptedPassword
     });
 
     return {

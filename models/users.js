@@ -8,14 +8,11 @@ User.init(
     nama_lengkap: {
       type: DataTypes.STRING,
     },
-    username: {
+    email: {
       type: DataTypes.STRING,
       unique: true,
     },
     password: {
-      type: DataTypes.STRING,
-    },
-    alamat: {
       type: DataTypes.STRING,
     }
   },
